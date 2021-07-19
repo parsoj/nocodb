@@ -2,7 +2,7 @@ name: Sync Fork
 
 on:
   schedule:
-    - cron: "*/30 * * * *" # every 30 minutes
+    - cron: "* * * * *" # every hour
   workflow_dispatch: # on button click
 
 jobs:
@@ -13,5 +13,6 @@ jobs:
       - uses: tgymnich/fork-sync@v1.4
         with:
           owner: nocodb
+          token: ${{ secrets.PERSONAL_TOKEN }}
           base: master
           head: master
